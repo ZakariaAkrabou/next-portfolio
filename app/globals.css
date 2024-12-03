@@ -2,26 +2,121 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@layer base {
+  * {
+    @apply cursor-none;
+    box-sizing: border-box;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  html {
+    @apply scroll-smooth;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  body {
+    @apply bg-primary text-text-primary min-h-screen w-full overflow-x-hidden;
+    background-image: radial-gradient(
+      circle at center,
+      rgba(26, 26, 26, 0.5) 0%,
+      rgba(8, 8, 8, 0.3) 100%
+    );
+  }
+
+ 
+  @media (hover: none) and (pointer: coarse) {
+    * {
+      cursor: auto !important;
+    }
+    .custom-cursor {
+      display: none !important;
+    }
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+::-webkit-scrollbar-track {
+  background: theme('colors.primary.DEFAULT');
+}
+
+::-webkit-scrollbar-thumb {
+  background: theme('colors.accent.DEFAULT');
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: theme('colors.accent.hover');
+}
+
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: theme('colors.accent.DEFAULT') theme('colors.primary.DEFAULT');
+}
+
+
+::selection {
+  @apply bg-accent/20 text-text-primary;
+}
+
+
+a, button, [role="button"], input, select, textarea {
+  cursor: none !important;
+}
+
+
+.gradient-animation {
+  background: linear-gradient(
+    -45deg,
+    #0F0F0F,
+    #1A1A1A,
+    #00FFF0,
+    #33FFF4
+  );
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+.glass-effect {
+  @apply bg-background-card backdrop-blur-md border border-border;
+}
+
+
+.text-gradient {
+  @apply text-transparent bg-clip-text;
+  background-image: linear-gradient(
+    to right,
+    #00FFF0,
+    #33FFF4,
+    #00E6D8
+  );
+  background-size: 200% auto;
+  animation: text-shine 3s linear infinite;
+}
+
+@keyframes text-shine {
+  from {
+    background-position: 0% center;
+  }
+  to {
+    background-position: 200% center;
   }
 }
