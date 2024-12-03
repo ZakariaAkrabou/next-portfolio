@@ -37,7 +37,7 @@ export default function Home() {
       const timer = setTimeout(() => setShowEnter(true), 500);
       return () => clearTimeout(timer);
     }
-  }, [isLoading, currentLine]);
+  }, [isLoading, currentLine, codeLines.length]);
 
   useEffect(() => {
     const cursorInterval = setInterval(() => {
