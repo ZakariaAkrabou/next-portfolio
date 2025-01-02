@@ -1,7 +1,22 @@
 "use client";
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaCode } from 'react-icons/fa';
+import { 
+  FaGithub, 
+  FaExternalLinkAlt, 
+  FaCode, 
+  FaReact, 
+  FaNodeJs, 
+  FaLaravel, 
+  FaHtml5, 
+  FaJs 
+} from 'react-icons/fa';
+import { 
+  SiTailwindcss, 
+  SiExpress, 
+  SiFramer, 
+  SiBlade 
+} from 'react-icons/si';
 import Image from 'next/image';
 import CustomCursor from '../../components/CustomCursor';
 import ProjectGallery from '../../components/ProjectGallery';
@@ -102,6 +117,20 @@ const projects = [
   }
 ];
 
+// Technology icons configuration
+const techConfig = {
+  'React': { icon: FaReact, color: '#61DAFB' },
+  'Express.js': { icon: SiExpress, color: '#000000' },
+  'Laravel': { icon: FaLaravel, color: '#FF2D20' },
+  'Blade': { icon: SiBlade, color: '#F05340' },
+  'JavaScript': { icon: FaJs, color: '#F7DF1E' },
+  'HTML': { icon: FaHtml5, color: '#E34F26' },
+  'Tailwind CSS': { icon: SiTailwindcss, color: '#38B2AC' },
+  'Framer Motion': { icon: SiFramer, color: '#0055FF' },
+  'EJS': { icon: FaHtml5, color: '#90A93A' },
+  'Node.js': { icon: FaNodeJs, color: '#339933' }
+};
+
 const AnimatedText = ({ text }) => {
   const letters = Array.from(text);
   const container = {
@@ -191,16 +220,29 @@ const ProjectCard = ({ project, index, onOpenGallery }) => {
       </div>
       <div className="p-6">
         <h3 className="text-xl font-semibold mb-2 text-accent">{project.title}</h3>
-        <p className="text-text-secondary mb-4 text-sm line-clamp-3">{project.description}</p>
+        <p className="text-text-secondary mb-4 text-sm">{project.description}</p>
         <div className="flex flex-wrap gap-2">
-          {project.technologies.map((tech) => (
-            <span
-              key={tech}
-              className="px-3 py-1 text-xs rounded-full bg-accent/10 text-accent"
-            >
-              {tech}
-            </span>
-          ))}
+          {project.technologies.map((tech) => {
+            const techInfo = techConfig[tech] || { icon: FaCode, color: '#666' };
+            const IconComponent = techInfo.icon || FaCode;
+            
+            return (
+              <motion.span
+                key={tech}
+                className="px-3 py-1 text-xs rounded-full bg-accent/10 text-accent flex items-center gap-1.5 group transition-all duration-300 hover:bg-opacity-20"
+                style={{
+                  '--hover-color': techInfo.color
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  color: techInfo.color,
+                }}
+              >
+                <IconComponent className="w-3.5 h-3.5" />
+                {tech}
+              </motion.span>
+            );
+          })}
         </div>
       </div>
     </motion.div>

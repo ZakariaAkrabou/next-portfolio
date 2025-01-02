@@ -20,47 +20,47 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#0a0a0a', // Deep black
+          DEFAULT: '#030712', // Very dark gray/black
           dark: '#000000',    // Pure black
-          light: '#141414',   // Dark gray
+          light: '#111827',   // Slightly lighter black
         },
         accent: {
-          DEFAULT: '#ff3333', // Strong red
-          hover: '#cc0000',   // Dark red
-          light: '#ff6666',   // Red
+          DEFAULT: '#10b981', // Emerald green
+          hover: '#059669',   // Darker emerald
+          light: '#34d399',   // Light emerald
         },
         secondary: {
-          DEFAULT: '#333333', // Dark gray
-          light: '#4d4d4d',   // Medium gray
-          dark: '#1a1a1a',    // Very dark gray
+          DEFAULT: '#10b981', // Using emerald as secondary too
+          light: '#34d399',   // Light emerald
+          dark: '#059669',    // Dark emerald
         },
         background: {
-          DEFAULT: '#0a0a0a',
+          DEFAULT: '#030712',
           dark: '#000000',
-          light: '#141414',
-          card: 'rgba(20, 20, 20, 0.7)',
+          light: '#111827',
+          card: 'rgba(0, 0, 0, 0.8)',
         },
         text: {
-          primary: '#ffffff',     // White
-          secondary: '#999999',   // Dark gray
-          accent: '#ff3333',      // Strong red
+          primary: '#f9fafb',     // Almost white
+          secondary: '#e5e7eb',   // Light gray
+          accent: '#10b981',      // Emerald
         },
         border: {
-          DEFAULT: 'rgba(255, 51, 51, 0.1)', // Red border
-          hover: 'rgba(255, 51, 51, 0.2)',   // Red border hover
+          DEFAULT: 'rgba(16, 185, 129, 0.1)', // Emerald border
+          hover: 'rgba(16, 185, 129, 0.2)',   // Emerald border hover
         },
         gradient: {
-          start: '#0a0a0a',
+          start: '#000000',
           middle: '#141414',
-          end: '#000000',
+          end: '#030712',
         }
       },
       fontFamily: {
         primary: ["var(--font-jetbrains-mono)"],
       },
       boxShadow: {
-        'glow': '0 0 20px rgba(255, 51, 51, 0.15)',
-        'glow-hover': '0 0 30px rgba(255, 51, 51, 0.25)',
+        'glow': '0 0 20px rgba(16, 185, 129, 0.15)',
+        'glow-hover': '0 0 30px rgba(16, 185, 129, 0.25)',
       },
       animation: {
         'gradient-x': 'gradient-x 15s ease infinite',

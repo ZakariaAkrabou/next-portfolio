@@ -68,8 +68,8 @@ const Nav = () => {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            <span className="absolute inset-0 bg-gradient-to-r from-accent via-secondary to-accent opacity-50 group-hover:opacity-80 transition-opacity" />
-                            <span className="relative text-sm uppercase tracking-wider font-medium text-white">
+                            <span className="absolute inset-0 bg-accent transition-colors group-hover:bg-accent/90" />
+                            <span className="relative text-sm uppercase tracking-wider font-medium text-background">
                                 Let's Talk
                             </span>
                         </motion.a>
