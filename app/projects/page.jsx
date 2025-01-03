@@ -1,4 +1,5 @@
-"use client";
+'use client';
+
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
@@ -11,7 +12,13 @@ import {
   FaHtml5,
   FaJs,
 } from "react-icons/fa";
-import { SiTailwindcss, SiExpress, SiFramer, SiMongodb, SiBlade } from "react-icons/si";
+import { 
+  SiTailwindcss, 
+  SiExpress, 
+  SiFramer, 
+  SiMongodb 
+} from "react-icons/si";
+import { TbBrandNextjs } from "react-icons/tb";
 import Image from "next/image";
 import ProjectGallery from "../../components/ProjectGallery";
 import AnimatedTitle from "../../components/AnimatedTitle";
@@ -105,7 +112,7 @@ const techConfig = {
   React: { icon: FaReact, color: "#61DAFB" },
   "Express.js": { icon: SiExpress, color: "#FFFFFF" },
   Laravel: { icon: FaLaravel, color: "#FF2D20" },
-  Blade: { icon: SiBlade, color: "#F05340" },
+  Blade: { icon: TbBrandNextjs, color: "#F05340" },
   JavaScript: { icon: FaJs, color: "#F7DF1E" },
   HTML: { icon: FaHtml5, color: "#E34F26" },
   "Tailwind CSS": { icon: SiTailwindcss, color: "#38B2AC" },

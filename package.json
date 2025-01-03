@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "clean": "if exist .next rmdir /s /q .next && if exist out rmdir /s /q out",
+    "deploy": "npm run clean && npm run build"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

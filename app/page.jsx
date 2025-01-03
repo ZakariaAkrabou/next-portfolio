@@ -205,13 +205,16 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const timer = setInterval(() => {
       if (terminalStage < terminalCommands.length) {
         setTerminalStage(prev => prev + 1);
+      } else {
+        clearInterval(timer);
       }
     }, 2000);
-    return () => clearInterval(interval);
-  }, [terminalStage]);
+
+    return () => clearInterval(timer);
+  }, [terminalStage, terminalCommands.length]);
 
   return (
     <div className="fixed inset-0 bg-primary text-white overflow-hidden">
