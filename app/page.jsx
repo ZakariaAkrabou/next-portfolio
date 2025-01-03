@@ -171,6 +171,7 @@ export default function Home() {
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [terminalStage, setTerminalStage] = useState(0);
   const [isExploreHovered, setIsExploreHovered] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const router = useRouter();
 
   const loadingMessages = [
@@ -189,7 +190,15 @@ export default function Home() {
     { command: "start portfolio --mode awesome", output: "Portfolio is ready! Welcome aboard! 🚀" }
   ];
 
+  // Handle client-side mounting
   useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  // Handle loading progress
+  useEffect(() => {
+    if (!isMounted) return;
+    
     const progressInterval = setInterval(() => {
       setLoadingProgress(prev => {
         if (prev >= 100) {
@@ -199,12 +208,15 @@ export default function Home() {
         }
         return prev + 2;
       });
-    }, 50);
+    }, 100);
 
     return () => clearInterval(progressInterval);
-  }, []);
+  }, [isMounted]);
 
+  // Handle terminal commands
   useEffect(() => {
+    if (!isMounted) return;
+
     const timer = setInterval(() => {
       if (terminalStage < terminalCommands.length) {
         setTerminalStage(prev => prev + 1);
@@ -214,7 +226,11 @@ export default function Home() {
     }, 2000);
 
     return () => clearInterval(timer);
-  }, [terminalStage, terminalCommands.length]);
+  }, [isMounted, terminalStage, terminalCommands.length]);
+
+  if (!isMounted) {
+    return null;
+  }
 
   return (
     <div className="fixed inset-0 bg-primary text-white overflow-hidden">
