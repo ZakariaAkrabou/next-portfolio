@@ -4,7 +4,6 @@
 
 @layer base {
   * {
-    @apply cursor-none;
     box-sizing: border-box;
   }
 
@@ -69,6 +68,9 @@ a, button, [role="button"], input, select, textarea {
   cursor: none !important;
 }
 
+.custom-cursor-active {
+  @apply cursor-none;
+}
 
 .gradient-animation {
   background: linear-gradient(
@@ -119,4 +121,128 @@ a, button, [role="button"], input, select, textarea {
   to {
     background-position: 200% center;
   }
+}
+
+.page-title {
+  @apply text-4xl md:text-5xl font-bold text-center relative;
+  text-shadow: 0 0 20px rgba(0, 255, 240, 0.1);
+}
+
+.page-title::before {
+  content: attr(data-text);
+  @apply absolute inset-0 text-transparent bg-clip-text bg-gradient-to-r from-accent via-accent/80 to-accent/50;
+  animation: shine 3s ease-in-out infinite;
+  background-size: 200% auto;
+}
+
+.page-title::after {
+  content: '';
+  @apply absolute -bottom-4 left-1/2 w-24 h-1 bg-accent/20 rounded-full -translate-x-1/2;
+  filter: blur(2px);
+}
+
+@keyframes shine {
+  0% {
+    background-position: -200% center;
+  }
+  
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.section-title {
+  @apply text-2xl md:text-3xl font-bold relative inline-block;
+  text-shadow: 0 0 10px rgba(0, 255, 240, 0.1);
+}
+
+.section-title::before {
+  content: attr(data-text);
+  @apply absolute inset-0 text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent/50;
+}
+
+.section-title::after {
+  content: '';
+  @apply absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-accent/50 to-transparent;
+}
+
+.title-container {
+  @apply relative inline-block;
+}
+
+.title-container::before,
+.title-container::after {
+  content: '';
+  @apply absolute w-8 h-8 opacity-50;
+}
+
+.title-container::before {
+  @apply -top-4 -left-4 border-l-2 border-t-2 border-accent;
+}
+
+.title-container::after {
+  @apply -bottom-4 -right-4 border-r-2 border-b-2 border-accent;
+}
+
+.title-accent {
+  @apply absolute -inset-1 bg-accent/5 blur-xl rounded-full;
+}
+
+/* Tech Icon Colors */
+.tech-icon-js {
+  @apply text-yellow-400;
+  filter: drop-shadow(0 0 8px rgba(250, 204, 21, 0.3));
+  animation: shine-pulse 2s ease-in-out infinite;
+}
+
+.tech-icon-react {
+  @apply text-cyan-400;
+  filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.3));
+  animation: shine-pulse 2s ease-in-out infinite 0.5s;
+}
+
+.tech-icon-node {
+  @apply text-green-500;
+  filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.3));
+  animation: shine-pulse 2s ease-in-out infinite 1s;
+}
+
+.tech-icon-laravel {
+  @apply text-red-500;
+  filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.3));
+  animation: shine-pulse 2s ease-in-out infinite 1.5s;
+}
+
+.tech-icon-glow {
+  @apply absolute -inset-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full;
+  background: radial-gradient(circle, rgba(var(--glow-color), 0.2) 0%, transparent 70%);
+}
+
+@keyframes shine-pulse {
+  0% {
+    filter: drop-shadow(0 0 8px rgba(var(--glow-color), 0.3));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(var(--glow-color), 0.5));
+    transform: scale(1.05);
+  }
+  100% {
+    filter: drop-shadow(0 0 8px rgba(var(--glow-color), 0.3));
+    transform: scale(1);
+  }
+}
+
+.tech-icon-container {
+  @apply relative p-2 rounded-lg transition-transform duration-300 ease-out;
+}
+
+.tech-icon-container::before {
+  content: '';
+  @apply absolute inset-0 rounded-lg opacity-0 transition-opacity duration-300;
+  background: radial-gradient(circle at center, rgba(var(--glow-color), 0.15), transparent 70%);
+}
+
+.tech-icon-container:hover::before {
+  @apply opacity-100;
 }

@@ -41,7 +41,7 @@ export const skillCategories = [
     skills: [
       { name: "PHP", icon: FaPhp, color: "#777BB4" },
       { name: "Node.js", icon: FaNodeJs, color: "#339933" },
-      { name: "Laravel", icon: FaLaravel, color: "#FF2D20" },
+      // { name: "Laravel", icon: FaLaravel, color: "#FF2D20" },
       { name: "Python", icon: SiPython, color: "#3776AB" },
     ]
   },

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import AnimatedTitle from '../../components/AnimatedTitle';
 
 const ResumePage = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -15,21 +16,29 @@ const ResumePage = () => {
                 className="max-w-4xl mx-auto"
             >
                 <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-6 shadow-xl">
-                    <div className="flex justify-between items-center mb-6">
-                        <h1 className="text-3xl font-bold text-purple-400">My Resume</h1>
-                        <motion.a
-                            href="/cv.pdf"
-                            download
-                            className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md transition-colors duration-200 flex items-center gap-2"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                            </svg>
-                            Download Resume
-                        </motion.a>
-                    </div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="text-center mb-12"
+                    >
+                        <AnimatedTitle 
+                            title="My Resume"
+                            subtitle="A detailed overview of my professional experience, education, and skills."
+                        />
+                    </motion.div>
+                    <motion.a
+                        href="/cv.pdf"
+                        download
+                        className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md transition-colors duration-200 flex items-center gap-2"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                        Download Resume
+                    </motion.a>
 
                     <div className="relative">
                         {isLoading && (

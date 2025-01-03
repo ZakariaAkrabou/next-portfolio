@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import { IoSendSharp } from 'react-icons/io5';
 import Toast from '../../components/ui/toast';
+import AnimatedTitle from '../../components/AnimatedTitle';
 
 const socialLinks = [
   {
@@ -67,27 +68,13 @@ const ContactPage = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className="max-w-4xl mx-auto"
+        className="max-w-4xl mx-auto px-4 py-12 md:py-20"
       >
-        {/* Header */}
-        <div className="text-center mb-16">
-          <motion.h1
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-text-primary via-accent to-text-primary"
-          >
-            Let's Connect
-          </motion.h1>
-          <motion.p
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="text-text-secondary text-lg"
-          >
-            Have a question or want to work together?
-          </motion.p>
-        </div>
+        {/* Contact Title */}
+        <AnimatedTitle 
+          title="Get In Touch"
+          subtitle="Have a question or want to work together? Feel free to reach out!"
+        />
 
         <div className="grid md:grid-cols-2 gap-12">
           {/* Contact Form */}

@@ -9,6 +9,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { HiOutlineArrowNarrowRight } from 'react-icons/hi';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import AnimatedTitle from '../../components/AnimatedTitle';
 
 const AboutPage = () => {
     const [ref, inView] = useInView({
@@ -156,6 +157,12 @@ const AboutPage = () => {
                         </div>
                     </div>
                 </div>
+
+                {/* About Page Title */}
+                <AnimatedTitle 
+                    title="About Me"
+                    subtitle="Get to know more about my journey, skills, and what drives me as a developer."
+                />
 
                 {/* Skills Section */}
                 <div 
