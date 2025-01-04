@@ -29,29 +29,23 @@ const TypeWriter = ({ text, delay = 100, onComplete }) => {
 const TerminalPrompt = ({ command, output, isTyping }) => (
   <div className="font-mono space-y-1">
     <div className="flex items-center gap-2 text-accent">
-      <span className="text-accent/60">❯</span>
-      <span>{command}</span>
-      {isTyping && (
-        <motion.span
-          animate={{ opacity: [0, 1] }}
-          transition={{ duration: 0.5, repeat: Infinity }}
-        >
-          _
-        </motion.span>
+      <span>$</span>
+      {isTyping ? (
+        <TypeWriter text={command} />
+      ) : (
+        <span>{command}</span>
       )}
     </div>
-    {output && (
-      <div className="text-text-secondary pl-4">
-        {output}
-      </div>
+    {!isTyping && output && (
+      <div className="text-text-secondary pl-4">{output}</div>
     )}
   </div>
 );
 
 const GlowingIcon = ({ icon: Icon, color, className }) => (
-  <div className="relative group">
-    <div className={`absolute inset-0 blur-lg opacity-40 group-hover:opacity-60 transition-opacity ${color}`} />
-    <Icon className={`relative ${className}`} />
+  <div className={`relative ${className}`}>
+    <Icon className="relative z-10 w-6 h-6" style={{ color }} />
+    <div className="absolute inset-0 blur-sm" style={{ color }} />
   </div>
 );
 
@@ -59,17 +53,17 @@ const FloatingParticle = ({ delay }) => (
   <motion.div
     className="absolute w-1 h-1 bg-accent rounded-full"
     initial={{ opacity: 0, scale: 0 }}
-    animate={{ 
+    animate={{
       opacity: [0, 1, 0],
       scale: [0, 1.5, 0],
-      y: [-20, 20],
-      x: [-20, 20]
+      y: [0, -100],
+      x: [0, Math.random() * 100 - 50],
     }}
     transition={{
       duration: 2,
       delay,
       repeat: Infinity,
-      repeatType: "reverse"
+      repeatDelay: Math.random() * 3,
     }}
   />
 );
@@ -190,12 +184,10 @@ export default function Home() {
     { command: "start portfolio --mode awesome", output: "Portfolio is ready! Welcome aboard! 🚀" }
   ];
 
-  // Handle client-side mounting
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
-  // Handle loading progress
   useEffect(() => {
     if (!isMounted) return;
     
@@ -213,7 +205,6 @@ export default function Home() {
     return () => clearInterval(progressInterval);
   }, [isMounted]);
 
-  // Handle terminal commands
   useEffect(() => {
     if (!isMounted) return;
 
@@ -244,7 +235,6 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="h-screen w-screen flex items-center justify-center bg-gradient-to-br from-primary-dark to-primary relative overflow-hidden"
           >
-            {/* Animated background elements */}
             <div className="absolute inset-0">
               {Array.from({ length: 20 }).map((_, i) => (
                 <FloatingParticle key={i} delay={i * 0.1} />
@@ -270,7 +260,6 @@ export default function Home() {
               />
             </div>
 
-            {/* Central loading content */}
             <div className="relative z-10 space-y-8 text-center">
               <motion.div
                 animate={{ 
@@ -319,7 +308,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Binary rain effect */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
               {Array.from({ length: 20 }).map((_, i) => (
                 <motion.div
@@ -392,7 +380,6 @@ export default function Home() {
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 h-full items-center">
-              {/* Terminal Section - Hidden on mobile */}
               <motion.div
                 initial={{ x: -100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
@@ -434,7 +421,6 @@ export default function Home() {
                 </div>
               </motion.div>
 
-              {/* Content Section */}
               <motion.div
                 initial={{ x: 100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
