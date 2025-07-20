@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
 
 @layer base {
   * {
@@ -40,22 +39,22 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: theme('colors.primary.DEFAULT');
+  background: #030712;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: theme('colors.accent.DEFAULT');
+  background: #10b981;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: theme('colors.accent.hover');
+  background: #059669;
 }
 
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: theme('colors.accent.DEFAULT') theme('colors.primary.DEFAULT');
+  scrollbar-color: #10b981 #030712;
 }
 
 
