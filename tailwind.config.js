@@ -20,19 +20,19 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#030712', // Very dark gray/black
-          dark: '#000000',    // Pure black
-          light: '#111827',   // Slightly lighter black
+          DEFAULT: '#030712', 
+          dark: '#000000',    
+          light: '#111827',   
         },
         accent: {
-          DEFAULT: '#10b981', // Emerald green
-          hover: '#059669',   // Darker emerald
-          light: '#34d399',   // Light emerald
+          DEFAULT: '#10b981', 
+          hover: '#059669',   
+          light: '#34d399',   
         },
         secondary: {
-          DEFAULT: '#10b981', // Using emerald as secondary too
-          light: '#34d399',   // Light emerald
-          dark: '#059669',    // Dark emerald
+          DEFAULT: '#10b981', 
+          light: '#34d399',   
+          dark: '#059669',    
         },
         background: {
           DEFAULT: '#030712',
@@ -41,13 +41,13 @@ module.exports = {
           card: 'rgba(0, 0, 0, 0.8)',
         },
         text: {
-          primary: '#f9fafb',     // Almost white
-          secondary: '#e5e7eb',   // Light gray
-          accent: '#10b981',      // Emerald
+          primary: '#f9fafb',    
+          secondary: '#e5e7eb',  
+          accent: '#10b981',     
         },
         border: {
-          DEFAULT: 'rgba(16, 185, 129, 0.1)', // Emerald border
-          hover: 'rgba(16, 185, 129, 0.2)',   // Emerald border hover
+          DEFAULT: 'rgba(16, 185, 129, 0.1)',
+          hover: 'rgba(16, 185, 129, 0.2)',   
         },
         gradient: {
           start: '#000000',

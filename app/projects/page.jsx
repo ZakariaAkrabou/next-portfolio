@@ -11,12 +11,15 @@ import {
   FaLaravel,
   FaHtml5,
   FaJs,
+  FaAngular,
+  FaLeaf
 } from "react-icons/fa";
 import { 
   SiTailwindcss, 
   SiExpress, 
   SiFramer, 
-  SiMongodb 
+  SiMongodb,
+  SiTensorflow
 } from "react-icons/si";
 import { TbBrandNextjs } from "react-icons/tb";
 import Image from "next/image";
@@ -24,6 +27,20 @@ import ProjectGallery from "../../components/ProjectGallery";
 import AnimatedTitle from "../../components/AnimatedTitle";
 
 const projects = [
+  {
+    title: "TryOptic - Virtual Glasses Try-On",
+    description: "A platform designed for both clients and opticians, enabling virtual glasses try-on with real-time face detection and frame overlay. Facilitates personalized eyewear selection and streamlines the consultation process.",
+    technologies: ["Angular", "Spring Boot", "TensorFlow"],
+    github: "https://github.com/ZakariaAkrabou/TryOptic",
+    category: "FullStack",
+    thumbnail: "/projects/tryoptic/1.png",
+    images: [
+      "/projects/tryoptic/1.png",
+      "/projects/tryoptic/2.png",
+      "/projects/tryoptic/3.png",
+      "/projects/tryoptic/4.png"
+    ],
+  },
   {
     title: "Travel & Tourism Website",
     description: "Dynamic travel platform with Express.js and React. Features tour booking, interactive maps, user authentication, and MongoDB integration. Responsive design ensures optimal experience across devices.",
@@ -119,7 +136,10 @@ const techConfig = {
   "Framer Motion": { icon: SiFramer, color: "#0055FF" },
   EJS: { icon: FaHtml5, color: "#90A93A" },
   "Node.js": { icon: FaNodeJs, color: "#339933" },
-  MongoDB: { icon: SiMongodb, color: "#47A248" }
+  MongoDB: { icon: SiMongodb, color: "#47A248" },
+  Angular: { icon: FaAngular, color: "#DD0031" },
+  "Spring Boot": { icon: FaLeaf, color: "#6DB33F" },
+  TensorFlow: { icon: SiTensorflow, color: "#FF6F00" }
 };
 
 const AnimatedText = ({ text }) => {
