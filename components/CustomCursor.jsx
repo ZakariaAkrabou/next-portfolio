@@ -54,14 +54,14 @@ const CustomCursor = () => {
       document.body.classList.remove('custom-cursor-active');
     };
 
-    window.addEventListener('mousemove', updateMousePosition);
-    window.addEventListener('mouseover', updateCursorType);
+    window.addEventListener('pointermove', updateMousePosition, { passive: true });
+    window.addEventListener('pointerover', updateCursorType, { passive: true });
     document.addEventListener('mouseenter', handleMouseEnter);
     document.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
-      window.removeEventListener('mousemove', updateMousePosition);
-      window.removeEventListener('mouseover', updateCursorType);
+      window.removeEventListener('pointermove', updateMousePosition);
+      window.removeEventListener('pointerover', updateCursorType);
       document.removeEventListener('mouseenter', handleMouseEnter);
       document.removeEventListener('mouseleave', handleMouseLeave);
       window.removeEventListener('resize', checkMobile);
@@ -75,46 +75,46 @@ const CustomCursor = () => {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 w-4 h-4 bg-accent mix-blend-difference rounded-full pointer-events-none z-[100]"
+        className="fixed top-0 left-0 w-3.5 h-3.5 bg-accent rounded-full pointer-events-none z-[100]"
         animate={{
-          x: mousePosition.x - 8,
-          y: mousePosition.y - 8,
-          scale: isPointer ? 1.5 : 1,
+          x: mousePosition.x - 7,
+          y: mousePosition.y - 7,
+          scale: isPointer ? 1.35 : 1,
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 1400,
+          damping: 26,
+          mass: 0.08,
+        }}
+      />
+      <motion.div
+        className="fixed top-0 left-0 w-7 h-7 border border-accent/40 rounded-full pointer-events-none z-[100]"
+        animate={{
+          x: mousePosition.x - 14,
+          y: mousePosition.y - 14,
+          scale: isPointer ? 1.25 : 1,
         }}
         transition={{
           type: "spring",
           stiffness: 1000,
-          damping: 40,
-          mass: 0.1,
-        }}
-      />
-      <motion.div
-        className="fixed top-0 left-0 w-8 h-8 border border-accent/40 rounded-full pointer-events-none z-[100] mix-blend-difference"
-        animate={{
-          x: mousePosition.x - 16,
-          y: mousePosition.y - 16,
-          scale: isPointer ? 1.5 : 1,
-        }}
-        transition={{
-          type: "spring",
-          stiffness: 800,
-          damping: 35,
-          mass: 0.2,
+          damping: 24,
+          mass: 0.16,
           restDelta: 0.001
         }}
       />
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 bg-accent/20 rounded-full pointer-events-none z-[90]"
+        className="fixed top-0 left-0 w-1.5 h-1.5 bg-accent/30 rounded-full pointer-events-none z-[90]"
         animate={{
-          x: mousePosition.x - 4,
-          y: mousePosition.y - 4,
-          scale: isPointer ? 1.2 : 1,
+          x: mousePosition.x - 3,
+          y: mousePosition.y - 3,
+          scale: isPointer ? 1.15 : 1,
         }}
         transition={{
           type: "spring",
-          stiffness: 600,
-          damping: 30,
-          mass: 0.5,
+          stiffness: 900,
+          damping: 22,
+          mass: 0.12,
           restDelta: 0.001
         }}
       />

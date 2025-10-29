@@ -28,6 +28,29 @@ import AnimatedTitle from "../../components/AnimatedTitle";
 
 const projects = [
   {
+    title: "StudioPH — Photography Portfolio & Client Gallery Platform",
+    description:
+      "A professional platform for photographers to showcase portfolios and deliver private client galleries. StudioPH offers responsive, category-based galleries, secure client spaces with password or access keys, and a clean admin dashboard for fast uploads and organization. Powered by Cloudinary for performance and built with a modern stack, it streamlines sharing, viewing, and downloads—giving you full control, branding, and a polished experience without subscriptions.",
+    technologies: ["Express.js", "React", "MongoDB", "TypeScript"],
+    github: "#",
+    category: "FullStack",
+    thumbnail: "/projects/studioPh/home.png",
+    images: [
+      "/projects/studioPh/home.png",
+      "/projects/studioPh/gellery.png",
+      "/projects/studioPh/view.png",
+      "/projects/studioPh/spceclient.png",
+      "/projects/studioPh/key.png",
+      "/projects/studioPh/contact.png",
+      "/projects/studioPh/dash.png",
+      "/projects/studioPh/prot.png",
+      "/projects/studioPh/client.png",
+      
+     
+     
+    ],
+  },
+  {
     title: "TryOptic - Virtual Glasses Try-On",
     description: "A platform designed for both clients and opticians, enabling virtual glasses try-on with real-time face detection and frame overlay. Facilitates personalized eyewear selection and streamlines the consultation process.",
     technologies: ["Angular", "Spring Boot", "TensorFlow"],
@@ -124,7 +147,7 @@ const projects = [
   },
 ];
 
-// Technology icons configuration
+
 const techConfig = {
   React: { icon: FaReact, color: "#61DAFB" },
   "Express.js": { icon: SiExpress, color: "#FFFFFF" },

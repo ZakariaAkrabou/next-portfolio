@@ -195,12 +195,12 @@ export default function Home() {
       setLoadingProgress(prev => {
         if (prev >= 100) {
           clearInterval(progressInterval);
-          setTimeout(() => setIsWelcomeScreen(false), 500);
+          setTimeout(() => setIsWelcomeScreen(false), 150);
           return 100;
         }
-        return prev + 2;
+        return prev + 5;
       });
-    }, 100);
+    }, 60);
 
     return () => clearInterval(progressInterval);
   }, [isMounted]);
@@ -214,7 +214,7 @@ export default function Home() {
       } else {
         clearInterval(timer);
       }
-    }, 2000);
+    }, 800);
 
     return () => clearInterval(timer);
   }, [isMounted, terminalStage, terminalCommands.length]);
